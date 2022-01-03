@@ -1,0 +1,24 @@
+{
+  "name": "2021s2_wad_m2_movieinfosystem_kokxinyi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "routes.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xinematix/2021S2_WAD_M2_MovieInfoSystem_KokXinYi.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xinematix/2021S2_WAD_M2_MovieInfoSystem_KokXinYi/issues"
+  },
+  "homepage": "https://github.com/xinematix/2021S2_WAD_M2_MovieInfoSystem_KokXinYi#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "mongoose": "^6.1.4"
+  }
+}

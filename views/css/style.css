@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #233d4d;
+    /* background-color: #14213d; */
+
+    color: white;
+}
+
+.movies {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+
+.movie-card {
+    justify-content: space-around;
+    margin: 1em;
+    /* float: left; */
+}
+
+h3 {
+    width: 185px;
+    word-wrap: break-word;
+    white-space: normal;
+}
