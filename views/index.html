@@ -16,7 +16,7 @@
         <h1 class="gradient-text">MyMovieApp</h1>
 
         <!-- Search Bar -->
-        <form id="searchForm">
+        <form id="form">
             <div class="inputContainer">
                 <input type="text" placeholder="Search" id="search" class="search">
                 <img src="./assets/search_icon.png" alt="search-icon" id="search-icon"> 
@@ -33,10 +33,15 @@
 
         </ul>
     </nav>
-
     <div class="container">
-        <section id="main">
+        <div id="myNav" class="overlay">
 
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          
+            <div class="overlay-content" id="overlay-content"></div>
+    
+          </div>
+        <section id="main">
         </section>
     </div>
         
@@ -44,3 +49,4 @@
     <script src='/js/index.js'></script>
 </body>
 </html>
+
