@@ -19,6 +19,8 @@
   "homepage": "https://github.com/xinematix/2021S2_WAD_M2_MovieInfoSystem_KokXinYi#readme",
   "dependencies": {
     "express": "^4.17.2",
-    "mongoose": "^6.1.4"
+    "mongoose": "^6.1.4",
+    "moviedb": "^0.2.10",
+    "node-themoviedb": "^0.2.8"
   }
 }

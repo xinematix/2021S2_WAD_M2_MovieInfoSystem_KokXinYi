@@ -9,21 +9,30 @@ body {
     color: white;
 }
 
-.movies {
+#main {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     
 }
 
-.movie-card {
+#main {
     justify-content: space-around;
     margin: 1em;
     /* float: left; */
 }
 
-h3 {
+h3,p {
     width: 185px;
     word-wrap: break-word;
     white-space: normal;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
+a:hover{
+    color: yellow;
 }
