@@ -4,7 +4,7 @@ $(function () {
 	var api_url = baseURL + "popular?" + api_key;
 	const searchURL = 'https://api.themoviedb.org/3/search/movie?' + api_key;
 
-	const form = document.getElementById('form');
+	const form = document.getElementById('searchForm');
 	const search = document.getElementById('search');
 	const main = document.getElementById('main');
 
