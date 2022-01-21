@@ -17,7 +17,7 @@ var database = {
                     email: String,
                     username: String,
                     password: String,
-                
+                    token: String
                 });
                 var connection = mongoose.connection;
                 //Assign and create model
@@ -28,7 +28,7 @@ var database = {
             }
         })
     },
-    addUser: function(e, u, pw, callback) {
+    register: function(e, u, pw, callback) {
         var newUser = new userModel({
             email: e,
             username: u,
@@ -36,12 +36,21 @@ var database = {
         });
         newUser.save(callback);
     },
-    getUser: function(u, pw, callback) {
+    login: function(u, pw, callback) {
         userModel.findOne({
             username: u,
             password: pw
         }, callback);
     },
+    updateToken: function (id, token, callback) {
+        userModel.findByIdAndUpdate(id, { token: token }, callback);
+    },
+    checkToken: function(token,callback) {
+        userModel.findOne({token:token},callback);
+    },
+    removeToken: function(id,callback) {
+        userModel.findByIdAndUpdate(id, {$unset: {token: 1}},callback);
+    }
 
 };
 

@@ -42,6 +42,7 @@ function showMovies(data) {
     })
 }
 
+//movie info
 const overlayContent = document.getElementById('overlay-content');
 function openNav(item) {
   let id = item.id;
@@ -74,4 +75,5 @@ form.addEventListener('submit', (e) => {
     }else{
         getMovies(api_url);
     }
-})
+});
+

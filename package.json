@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/xinematix/2021S2_WAD_M2_MovieInfoSystem_KokXinYi#readme",
   "dependencies": {
+    "crypto": "^1.0.1",
     "express": "^4.17.2",
     "mongoose": "^6.1.4",
     "moviedb": "^0.2.10",
