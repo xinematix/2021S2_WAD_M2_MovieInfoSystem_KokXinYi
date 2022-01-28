@@ -29,6 +29,10 @@ router.get('/login', function (req, res) {
     res.sendFile(__dirname + "/views/login.html");
 });
 
+router.get('/:id', function (req, res) {
+    res.sendFile(__dirname + "/views/movie.html");
+});
+
 router.post('/login', function (req, res) {
     var data = req.body;
     db.login(data.username, data.password, function(err, user){

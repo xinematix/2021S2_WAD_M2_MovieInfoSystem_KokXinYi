@@ -1,6 +1,6 @@
 const api_key = "api_key=95efee1e5cec02671e7e3c3d11b4065c"
-const baseURL = "https://api.themoviedb.org/3/movie/";
-var api_url = baseURL + "popular?" + api_key;
+const baseURL = "https://api.themoviedb.org/3/movie";
+var api_url = baseURL + "/popular?" + api_key;
 const searchURL = 'https://api.themoviedb.org/3/search/movie?' + api_key;
 // const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 
@@ -33,12 +33,12 @@ function showMovies(data) {
             <div class="movie-info">
                 <h3>${title}</h3>
             </div>
-                <button class="know-more" id="${id}">Know More</button>`
+                <button class="know-more" id="${id}" onclick="location.href='/${id}' ">Know More</button>`
         main.appendChild(movieEl);
         document.getElementById(id).addEventListener('click', () => {
-          console.log(id)
-          openNav(item)
-        })
+          console.log(id);
+          openNav(item);
+        });
     })
 }
 
@@ -46,7 +46,7 @@ function showMovies(data) {
 const overlayContent = document.getElementById('overlay-content');
 function openNav(item) {
   let id = item.id;
-  fetch(baseURL +id+'/videos?'+api_key).then(res => res.json()).then(videoData => {
+  fetch(baseURL + '/' + id+'/videos?'+api_key).then(res => res.json()).then(videoData => {
     console.log(videoData);
     if(videoData){
       document.getElementById("myNav").style.width = "100%";

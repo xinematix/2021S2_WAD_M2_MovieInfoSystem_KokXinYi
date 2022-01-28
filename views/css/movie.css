@@ -1,0 +1,39 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.1em;
+}
+
+.movie-details {
+    padding: 1em;
+    display: flex;
+    /* justify-content: space-around; */
+}
+
+.movie-poster {
+    width: 25%;
+    text-align: center;
+}
+
+.content {
+    width: 60%;
+}
+
+.content h1 {
+    margin: 0;
+}
+
+.genres, .movie-desc {
+    margin: 0;
+    /* padding: 0.5em; */
+}
+
+.rating {
+    margin-top: 0;
+    margin-bottom: 1.5em;
+}
+
+.comments-container {
+    width: 55%;
+    margin: 0 auto;
+}
+
