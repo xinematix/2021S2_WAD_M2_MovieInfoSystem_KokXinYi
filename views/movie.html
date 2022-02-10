@@ -59,16 +59,22 @@
         <p class="rating">Ratings: 7/10</p>
 
         
-
+       
         <!-- To put user comments here -->
         <div class="comments-container">
-            <h2>Comments</h2>
-            <div>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-                scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
-                into electronic typesetting, remaining essentially unchanged. 
-            </div>
+            <h1>Comments</h1>
+            <section class="comments">
+            </section>
+    
+            <br>
+            <section class="addNewComment">
+                <form action="/comments" method="POST">
+                    <label for="comment">Comments:</label> <br>
+                    <textarea type="text" id="comment" name="comment" rows="4" cols="50"></textarea><br>
+                   
+                  <input type="submit" value="Submit"> <br><br><br>
+                </form>
+            </section>
         </div>
 
 
@@ -79,6 +85,7 @@
     <script src='/js/auth.js'></script>
     <!-- <script src='/js/index.js'></script> -->
     <script src='/js/movie.js'></script>
+    <SCript src='/js/comment.js'></script>
 
 </body>
 

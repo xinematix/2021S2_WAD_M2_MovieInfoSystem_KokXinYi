@@ -99,10 +99,27 @@ router.post('/register', function (req, res) {
     });
 });
 
+router.post('/comments', function (req, res) {
+    var data = req.body;
+    db.addComment(data.comment,
+        function (err, comment) {
+            res.redirect('back');
+        })
+
+});
+
+router.get('/comments', function (req, res) {
+    db.getAllComments(function (err, comments) {
+        res.send(comments);
+    })
+
+});
 
 router.get('/:id', function (req, res) {
     res.sendFile(__dirname + "/views/movie.html");
 });
+
+
 
 
 module.exports = router;

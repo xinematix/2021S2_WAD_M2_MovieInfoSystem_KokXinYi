@@ -24,6 +24,26 @@ nav {
     margin-bottom: 1.5em;
 }
 
+#tags{
+    width:90%;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10px auto;
+}
+
+.tag{
+    color:white;
+    padding:10px 20px;
+    background-color: orange;
+    margin:5px;
+    cursor: pointer;
+}
+
+.tag.highlight{
+    background-color: red;
+}
+
 h1 {
     font-family: 'Archivo Black', sans-serif;
 }
@@ -104,7 +124,26 @@ nav li:hover {
   .navbar a:hover, .dropdown:hover .dropbtn {
     background-color: #FDCA40;
   }
-  
+  #tags{
+    width:90%;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10px auto;
+}
+
+.tag{
+    color:white;
+    padding:10px 20px;
+    background-color: orange;
+    margin:5px;
+    cursor: pointer;
+}
+
+.tag.highlight{
+    background-color: red;
+}
+
   .dropdown-content {
     display: none;
     position: absolute;
@@ -240,4 +279,20 @@ p{
     top: 20px;
     right: 45px;
     font-size: 60px;
+  }
+
+  button{
+    padding:5px 10px;
+    background-color: orange;
+    border-radius: 10px;
+    color: white;
+  }
+
+  h2,form{
+      text-align: center;
+  }
+
+  button{
+    display:block; 
+    margin: 0 auto;
   }

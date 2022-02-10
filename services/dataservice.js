@@ -3,6 +3,8 @@ var mongoose = require('mongoose');
 var schema = mongoose.Schema;
 var userSchema = {};
 var userModel; 
+var commentSchema = {};
+var commentModel; 
 
 mongoose.set('debug',true);
 
@@ -19,9 +21,15 @@ var database = {
                     password: String,
                     token: String
                 });
+                commentSchema = schema({
+                  
+                    comment: String,
+                   
+                });
                 var connection = mongoose.connection;
                 //Assign and create model
                 userModel = connection.model('user', userSchema);
+                commentModel = connection.model('comment', commentSchema);
             } else {
                 console.log("Error connecting to Mongo DB");
                 console.log(err);
@@ -50,7 +58,17 @@ var database = {
     },
     removeToken: function(id,callback) {
         userModel.findByIdAndUpdate(id, {$unset: {token: 1}},callback);
-    }
+    },
+    addComment: function(c, callback) {
+        var newComment = new commentModel({
+            comment: c,
+        });
+        newComment.save(callback);
+    },
+    getAllComments: function(callback) {
+        commentModel.find({},callback);
+    },
+  
 
 };
 
