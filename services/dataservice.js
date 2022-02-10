@@ -2,11 +2,16 @@
 var mongoose = require('mongoose');
 var schema = mongoose.Schema;
 var userSchema = {};
-var userModel; 
+var userModel;
 var commentSchema = {};
-var commentModel; 
+var commentModel;
 var profileDetailSchema = {};
-var userModel, profileDetailModel;
+var ratingSchema = {};
+var favouriteSchema = {};
+var userModel, profileDetailModel, ratingModel, favouriteModel;
+
+
+
 
 mongoose.set('debug', true);
 
@@ -24,7 +29,7 @@ var database = {
                     token: String
                 });
                 commentSchema = schema({
-                  
+
                     comment: String,
                 });
                 profileDetailSchema = schema({
@@ -37,11 +42,31 @@ var database = {
                         ref: 'users'
                     }
                 });
+                ratingSchema = schema({
+                    user: {
+                        type: schema.Types.ObjectId,
+                        ref: 'users'
+                    },
+                    movieid: String,
+                    rating: String
+
+                });
+                favouriteSchema = schema({
+                    user: {
+                        type: schema.Types.ObjectId,
+                        ref: 'users'
+                    },
+                    favourites: [String],
+
+                });
                 var connection = mongoose.connection;
                 //Assign and create model
                 userModel = connection.model('user', userSchema);
                 commentModel = connection.model('comment', commentSchema);
                 profileDetailModel = connection.model('profiledetail', profileDetailSchema);
+                ratingModel = connection.model('rating', ratingSchema);
+                favouriteModel = connection.model('favourite', favouriteSchema);
+
             } else {
                 console.log("Error connecting to Mongo DB");
                 console.log(err);
@@ -71,16 +96,17 @@ var database = {
     removeToken: function (id, callback) {
         userModel.findByIdAndUpdate(id, { $unset: { token: 1 } }, callback);
     },
-    addComment: function(c, callback) {
+    //User Comments
+    addComment: function (c, callback) {
         var newComment = new commentModel({
             comment: c,
         });
         newComment.save(callback);
     },
-    getAllComments: function(callback) {
-        commentModel.find({},callback);
+    getAllComments: function (callback) {
+        commentModel.find({}, callback);
     },
-    //user profile
+    //User Profile
     updateProfile: function (n, g, db, e, uid, callback) {
         profileDetailModel.findOneAndUpdate(
             { user: uid },
@@ -96,6 +122,29 @@ var database = {
     },
     getUserProfile: function (uid, callback) {
         profileDetailModel.findOne({ user: uid }, callback);
+    },
+    //User Ratings
+    addRating: function (uid, mid, r, callback) {
+        var newRating = new ratingModel({
+            user: uid,
+            movieid: mid,
+            rating: r
+        });
+        newRating.save(callback);
+    },
+    //User favourites
+    addFavourite: function (uid, mid, callback) {
+        favouriteModel.findOneAndUpdate(
+            { user: uid },
+            {
+                $push: {favourites: mid}
+            },
+            { upsert: true },
+            callback
+        );
+    },
+    getUserFavourites: function(uid, callback) {
+        favouriteModel.find({user: uid}, callback);
     }
 
 

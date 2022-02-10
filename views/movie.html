@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/movie.css">
     <title>Movie Details</title>
@@ -35,11 +36,11 @@
             <div class="dropdown">
                 <li class="login-success"><a href="" class="dropbtn" id="loggedIn-user"></a></li>
                 <div class="dropdown-content">
-                  <a href="/profile">Edit Profile</a>
-                  <a href="/favourites">Favourites</a>
-                  <a href="/forums">Forums</a>
+                    <a href="/profile">Edit Profile</a>
+                    <a href="/favourites">Favourites</a>
+                    <a href="/forums">Forums</a>
                 </div>
-            </div> 
+            </div>
             <li class="login-success"><a class="logoutBtn">Log Out</a> </li>
 
         </ul>
@@ -48,10 +49,33 @@
     <div class="container">
         <div class="container-left">
             <div class="movie-poster"></div>
-            <p class="rating">Ratings: 7/10</p>
-    
+            <p class="avgRating">Ratings: 7/10</p>
+            <p class="user-input" id="ratingBtn"><span class="fa fa-star"></span> Give a Rating</p>
+            <div id="myModal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <form onsubmit="return addUserRating()" id="user-rating">
+
+                        <label for="rating">Rate this: </label>
+                        <br>
+                        <input type="number" id="rating" name="rating"> /10
+                        <br>
+                        <input type="submit" value="Rate">
+                        
+                    </form>
+                <div class="statusMessage"></div>
+
+                    
+                </div>
+
+            </div>
+            <p class="user-input" onclick="return addToFavourites()"><span class="fa fa-plus"></span> Add to Favourites</p>
+            <!-- <a class="user-input" href="/favourites" onclick="return addToFavourites()"><span class="fa fa-plus"></span> Add to Favourites</a> -->
+
         </div>
-    
+
         <div class="container-right">
             <div class="movie-details">
                 <div class="content">
@@ -60,29 +84,29 @@
                     <h3>Plot</h3>
                     <p class="movie-desc"></p>
                 </div>
-    
+
             </div>
-    
+
             <!-- To put user comments here -->
             <div class="comments-container">
                 <h1>Comments</h1>
                 <section class="comments">
                 </section>
-        
+
                 <br>
                 <section class="addNewComment">
                     <form action="/comments" method="POST">
                         <label for="comment">Comments:</label> <br>
                         <textarea type="text" id="comment" name="comment" rows="4" cols="50"></textarea><br>
-                       
-                      <input type="submit" value="Submit"> <br><br><br>
+
+                        <input type="submit" value="Submit"> <br><br><br>
                     </form>
                 </section>
             </div>
-    
+
         </div>
     </div>
-    
+
 
 
     <script src='/js/jquery.min.js'></script>

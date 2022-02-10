@@ -1,6 +1,7 @@
 let movie_id = location.pathname;
 console.log(movie_id);
 
+
 const imgPoster =  document.querySelector('.movie-poster');
 const movieTitle =  document.querySelector('.movie-name');
 const movieGenres =  document.querySelector('.genres');
@@ -29,3 +30,84 @@ fetch(baseURL +movie_id+'?'+api_key).then(res => res.json()).then(videoData => {
         rating.innerHTML = vote_average + " / 10";
     }
   })
+
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("ratingBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+function addUserRating() {
+
+    var rating = $("#rating").val() + "/10";
+    console.log(rating);
+    var userRating = {
+        movieid: movie_id.slice(1),
+        rating: rating,
+
+    };
+
+    $.ajax({
+        url: "/rating?token="+sessionStorage.authToken,
+        method:"POST",
+        data: userRating
+    })
+    .done(function(data){
+        $(".statusMessage").text(data);
+        setTimeout(function(){
+            location.reload();
+        },3000);
+    })
+    .fail(function(err){
+        $(".statusMessage").text("Unable to add this rating");
+        
+    })
+    return false;
+}
+
+
+function addToFavourites() {
+
+    var userFavourites = {
+        movieid: movie_id.slice(1),
+
+    };
+
+    $.ajax({
+        url: "/favourites?token="+sessionStorage.authToken,
+        method:"POST",
+        data: userFavourites
+    })
+    .done(function(data){
+        alert(data);
+        setTimeout(function(){
+            location.reload();
+        },3000);
+    })
+    .fail(function(jqXHR, textStatus, errorThrown){
+        // $(".statusMessage").text("Unable to add this rating");
+        console.log("Unable to add this rating. Error: " + errorThrown);
+    })
+    return false;
+}
+

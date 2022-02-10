@@ -11,7 +11,7 @@ router.use(express.urlencoded({
 
 router.use(function (req, res, next) {
     //only check for token if it is PUT, DELETE or POST methods
-    if (req.method == "PUT" || req.method == "DELETE"
+    if (req.method == "PUT" || req.method == "DELETE" || req.url.includes("/rating") || req.url.includes("/favourites")
     ) {
         var token = req.query.token;
         if (token == undefined) {
@@ -145,6 +145,50 @@ router.put('/profile', function (req, res) {
             console.log(err);
         } else {
             console.log("profile: ", profile);
+
+        }
+    });
+});
+
+router.post('/rating', function (req, res) {
+    var data = req.body;
+    var movieid = req.params.id;
+    var userId = res.locals.user._id;
+    console.log("rating: " + data.rating + ", userID: " + userId);
+    db.addRating(userId, data.movieid, data.rating, function (err, rating) {
+        if (err) {
+            res.status(500).send("Unable to add rating.");
+
+        } else {
+            res.status(200).send("Rating saved!");
+
+        }
+    });
+});
+
+router.post('/favourites', function (req, res) {
+    var data = req.body;
+    var userId = res.locals.user._id;
+    db.addFavourite(userId, data.movieid, function (err, favourites) {
+        if (err) {
+            res.status(500).send("Unable to add favourite.");
+
+        } else {
+            res.status(200).send("Saved into Favourites!");
+
+        }
+    });
+});
+
+router.get('/favourites/:id', function (req, res) {
+    // var id = req.params.id;
+    var userId = res.locals.user._id;
+    db.getUserFavourites(userId, function (err, favourites) {
+        if (err) {
+            res.status(500).send("Unable to get favourite.");
+
+        } else {
+            res.status(200).send(favourites);
 
         }
     });
