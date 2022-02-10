@@ -13,6 +13,10 @@ $(function() {
   
     if(username) {
       $("#loggedIn-user").text(username);
+      // $("#loggedIn-user").click(function(){
+      //   this.href="/profile/"+username;
+      // });
+
     }
   
     $(".logoutBtn").click(function(){

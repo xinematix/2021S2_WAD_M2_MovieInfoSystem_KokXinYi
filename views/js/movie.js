@@ -1,4 +1,5 @@
 let movie_id = location.pathname;
+console.log(movie_id);
 
 const imgPoster =  document.querySelector('.movie-poster');
 const movieTitle =  document.querySelector('.movie-name');

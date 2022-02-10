@@ -1,0 +1,107 @@
+
+/* Edit Profile Page  */
+
+.wrapper {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 5em;
+}
+
+.options {
+    margin-top: 1.5em;
+    border: 1.2px black solid;
+    width: 22%;
+    height: 350px;
+    background: #fff;
+    /* background-color: #FDCA40; */
+    color: black;
+    font-size: 1.2em;
+}
+
+.options li {
+    padding: 0.3em 0.5em;
+/*    border: 1px red solid;*/
+    list-style-type: none;
+    margin-bottom: 0.5em;
+}
+
+.options i {
+    color: #898989;
+    padding-left: 1em;
+    
+}
+
+.title:hover {
+    background: #d7d7d7;
+    cursor: pointer;
+}
+
+.profile-container {
+    /* background-color: #FDCA40; */
+    padding: 0.7em;
+    background: #fff;
+    color: black;
+    margin-top: 1.5em;
+    border: 1.8px black solid;
+    width: 60%;
+    height: 400px;
+}
+
+#changePic {
+    color: blue;
+    cursor: pointer;
+}
+
+.edit-profile p {
+    margin-left: 0.5em;
+    font-size: 1.2em;
+}
+
+
+.edit-profile img {
+    width: 120px;
+    height: 120px;
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
+    margin-left: 0.5em;
+}
+
+.edit-profile label {
+    font-family: 'Lato';
+}
+
+form input {
+    margin-bottom: 0.5em;
+    margin-left: 0.5em;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+input[type="text"],input[type="date"],input[type="email"] {
+    margin-left: 2em;
+}
+
+label {
+    margin-left: 1em;
+}
+
+input[type="submit"] {
+    cursor: pointer;
+    border: none;
+    color: white;
+    background: #0069ed;
+    padding: 0.5em 1.2em;
+    position: relative;
+    top: 3.5em;
+    left: 3em;
+}
+
+input[type="submit"]:hover {
+    background: #0053ba;
+}
+
+.changePassword {
+    display: none;
+}

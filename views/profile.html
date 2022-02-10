@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/profile.css">
+
+    <title>My Profile</title>
+</head>
+
+<body>
+
+    <nav>
+        <a href="/">
+            <h1 class="gradient-text">MyMovieApp</h1>
+        </a>
+
+        <!-- Search Bar -->
+        <form id="form">
+            <div class="inputContainer">
+                <input type="text" placeholder="Search" id="search" class="search">
+                <img src="./assets/search_icon.png" alt="search-icon" id="search-icon">
+            </div>
+
+
+        </form>
+
+        <ul>
+            <li class="beforeLogin" id="login"><a href="/login">Log In </a></li>
+            <li class="beforeLogin" id="register"><a href="/register">Sign Up </a></li>
+
+            <div class="dropdown">
+                <li class="login-success"><a href="" class="dropbtn" id="loggedIn-user"></a></li>
+                <div class="dropdown-content">
+                    <a href="/profile">Edit Profile</a>
+                    <a href="/favourites">Favourites</a>
+                    <a href="/forums">Forums</a>
+                </div>
+            </div>
+            <li class="login-success"><a class="logoutBtn">Log Out</a> </li>
+
+        </ul>
+    </nav>
+    <h1>My Profile</h1>
+
+    <div class="wrapper">
+        <div class="options">
+            <li class="title" id="option1">Edit Profile</li>
+            <li class="title" id="option2">Change Password</li>
+ 
+        </div>
+        
+        
+        <div class="profile-container">
+           
+            <div class="edit-profile">
+                <p>Edit Profile</p>
+                <form action="" method="post">
+                   <div id="picture">
+                    
+ 
+                   </div>
+ 
+                    <!-- <label for="profilePic" id="changePic">Change Picture</label>
+                    <input type="file" id="profilePic" name="profilePic"> -->
+                    <br><br>
+                    <label for="fName">Full Name</label>
+                    <input type="text" id="fName" name="fName">
+                    <br>
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" id="dob" name="dob" >
+                    <br>
+                    <label for="telNo">Phone Number</label>
+                    <input type="tel" name="telNo" id="telNo" pattern="[0-9]{8}" >
+                    <br>
+                    <input type="submit" value="Update">
+ 
+                    <input type="hidden" name="email">
+                </form>
+ 
+            </div>
+ 
+            <div class="changePassword">
+               <form action="change_password.php" method="post" onsubmit="checkPassword()">
+ <!--
+                    <label for="">Old Pasword: </label>
+                    <input type="password" name="oldPw" id="oldPw">
+ -->
+                    <br>
+                     <label for="">New Pasword: </label>
+                    <input type="password" name="newPw" id="newPw">
+                    <br>
+                     <label for="">Confirm New Pasword: </label>
+                    <input type="password" name="cmfPw" id="cfmPw">
+                    <br>
+                    <input type="submit" value="Change Password">
+                </form>
+                
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src='/js/jquery.min.js'></script>
+    <script src='/js/auth.js'></script>
+    <script src="/js/profile.js"></script>
+    <!-- <script src='/js/index.js'></script> -->
+</body>
+
+</html>

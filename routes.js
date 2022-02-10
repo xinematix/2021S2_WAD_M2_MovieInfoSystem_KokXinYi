@@ -29,9 +29,18 @@ router.get('/login', function (req, res) {
     res.sendFile(__dirname + "/views/login.html");
 });
 
-router.get('/:id', function (req, res) {
-    res.sendFile(__dirname + "/views/movie.html");
+router.get('/profile', function (req, res) {
+    res.sendFile(__dirname + "/views/profile.html");
 });
+
+router.get('/favourites', function (req, res) {
+    res.sendFile(__dirname + "/views/favourites.html");
+});
+
+router.get('/forums', function (req, res) {
+    res.sendFile(__dirname + "/views/favourites.html");
+});
+
 
 router.post('/login', function (req, res) {
     var data = req.body;
@@ -89,5 +98,11 @@ router.post('/register', function (req, res) {
         }
     });
 });
+
+
+router.get('/:id', function (req, res) {
+    res.sendFile(__dirname + "/views/movie.html");
+});
+
 
 module.exports = router;
