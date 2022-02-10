@@ -26,8 +26,10 @@ $(function() {
       })
       .done(function(data){
           sessionStorage.removeItem("authToken");
+          sessionStorage.removeItem("username");
+
           location.reload();
-          // location.href = "/";
+          location.href = "/";
       })
       .fail(function(err){
           console.log(err.responseText);

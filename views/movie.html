@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/movie.css">
-    <title>Document</title>
+    <title>Movie Details</title>
 </head>
 
 <body>
@@ -44,41 +44,45 @@
 
         </ul>
     </nav>
+
     <div class="container">
-
-        <div class="movie-details">
+        <div class="container-left">
             <div class="movie-poster"></div>
-            <div class="content">
-                <h1 class="movie-name">Movie name</h1>
-                <p class="genres"></p>
-                <h3>Plot</h3>
-                <p class="movie-desc"></p>
-            </div>
-
-        </div>
-        <p class="rating">Ratings: 7/10</p>
-
-        
-       
-        <!-- To put user comments here -->
-        <div class="comments-container">
-            <h1>Comments</h1>
-            <section class="comments">
-            </section>
+            <p class="rating">Ratings: 7/10</p>
     
-            <br>
-            <section class="addNewComment">
-                <form action="/comments" method="POST">
-                    <label for="comment">Comments:</label> <br>
-                    <textarea type="text" id="comment" name="comment" rows="4" cols="50"></textarea><br>
-                   
-                  <input type="submit" value="Submit"> <br><br><br>
-                </form>
-            </section>
         </div>
-
-
+    
+        <div class="container-right">
+            <div class="movie-details">
+                <div class="content">
+                    <h1 class="movie-name">Movie name</h1>
+                    <p class="genres"></p>
+                    <h3>Plot</h3>
+                    <p class="movie-desc"></p>
+                </div>
+    
+            </div>
+    
+            <!-- To put user comments here -->
+            <div class="comments-container">
+                <h1>Comments</h1>
+                <section class="comments">
+                </section>
+        
+                <br>
+                <section class="addNewComment">
+                    <form action="/comments" method="POST">
+                        <label for="comment">Comments:</label> <br>
+                        <textarea type="text" id="comment" name="comment" rows="4" cols="50"></textarea><br>
+                       
+                      <input type="submit" value="Submit"> <br><br><br>
+                    </form>
+                </section>
+            </div>
+    
+        </div>
     </div>
+    
 
 
     <script src='/js/jquery.min.js'></script>

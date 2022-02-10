@@ -3,20 +3,26 @@ body {
     font-size: 1.1em;
 }
 
+.container {
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.container-right {
+    width: 80%;
+}
+
 .movie-details {
     padding: 1em;
-    display: flex;
+    /* display: flex; */
     /* justify-content: space-around; */
 }
 
 .movie-poster {
-    width: 25%;
     text-align: center;
 }
 
-.content {
-    width: 60%;
-}
 
 .content h1 {
     margin: 0;
@@ -24,16 +30,16 @@ body {
 
 .genres, .movie-desc {
     margin: 0;
-    /* padding: 0.5em; */
 }
 
 .rating {
-    margin-top: 0;
-    margin-bottom: 1.5em;
+    text-align: center;
+    margin: 0 0 1.5em 1em;
 }
 
 .comments-container {
-    width: 55%;
-    margin: 0 auto;
+    width: 80%;
+    /* margin: 0 auto; */
+    /* padding-left: 2em; */
 }
 

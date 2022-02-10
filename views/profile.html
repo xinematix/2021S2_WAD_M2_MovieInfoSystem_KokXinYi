@@ -48,7 +48,7 @@
 
         </ul>
     </nav>
-    <h1>My Profile</h1>
+    <h1 class="heading">My Profile</h1>
 
     <div class="wrapper">
         <div class="options">
@@ -62,37 +62,34 @@
            
             <div class="edit-profile">
                 <p>Edit Profile</p>
-                <form action="" method="post">
-                   <div id="picture">
-                    
- 
-                   </div>
- 
-                    <!-- <label for="profilePic" id="changePic">Change Picture</label>
-                    <input type="file" id="profilePic" name="profilePic"> -->
+                <form onsubmit="return updateProfile()" method="post">
+
                     <br><br>
-                    <label for="fName">Full Name</label>
-                    <input type="text" id="fName" name="fName">
+                    <label for="name">Full Name: </label>
+                    <input type="text" id="name" name="name">
                     <br>
-                    <label for="dob">Date of Birth</label>
+                    <label for="gender">Gender: </label>
+                    <input type="radio" name="gender" value="male" checked> Male
+
+                    <input type="radio" name="gender" value="female"> Female
+                    <br>
+                    <label for="dob">BirthDate</label>
                     <input type="date" id="dob" name="dob" >
                     <br>
-                    <label for="telNo">Phone Number</label>
-                    <input type="tel" name="telNo" id="telNo" pattern="[0-9]{8}" >
+                    <label for="email">Email: </label>
+                    <input type="text" name="email" id="email">
                     <br>
                     <input type="submit" value="Update">
- 
+                    <br>
                     <input type="hidden" name="email">
                 </form>
+                <div class="statusMessage"></div>
+
  
             </div>
  
             <div class="changePassword">
                <form onsubmit="changePassword()">
- <!--
-                    <label for="">Old Pasword: </label>
-                    <input type="password" name="oldPw" id="oldPw">
- -->
                     <br>
                      <label for="">New Pasword: </label>
                     <input type="password" name="newPw" id="newPw">

@@ -1,4 +1,6 @@
-
+.heading {
+    margin-left: 1.4em;
+}
 /* Edit Profile Page  */
 
 .wrapper {
@@ -13,6 +15,7 @@
     width: 22%;
     height: 350px;
     background: #fff;
+    border-radius: 20px;
     /* background-color: #FDCA40; */
     color: black;
     font-size: 1.2em;
@@ -38,6 +41,7 @@
 
 .profile-container {
     /* background-color: #FDCA40; */
+    border-radius: 20px;
     padding: 0.7em;
     background: #fff;
     color: black;
@@ -92,9 +96,9 @@ input[type="submit"] {
     border: none;
     color: white;
     background: #0069ed;
-    padding: 0.5em 1.2em;
+    padding: 0.5em 1.5em;
     position: relative;
-    top: 3.5em;
+    top: 5em;
     left: 3em;
 }
 
