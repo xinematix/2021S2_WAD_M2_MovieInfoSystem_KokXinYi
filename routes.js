@@ -150,19 +150,6 @@ router.put('/profile', function (req, res) {
     });
 });
 
-router.put('/password', function (req, res) {
-    var data = req.body;
-
-    db.updateProfile(data.password, function (err, profile) {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log("unable to change password");
-
-        }
-    });
-});
-
 router.post('/rating', function (req, res) {
     var data = req.body;
     var movieid = req.params.id;
