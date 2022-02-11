@@ -1,0 +1,368 @@
+{
+	"variables": [],
+	"info": {
+		"name": "MyMovieApp",
+		"_postman_id": "e0a0c9af-15d3-718b-2b0a-f28de2698ea7",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1a. Register a user",
+			"request": {
+				"url": "http://localhost:3000/register",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "test@gmail.com",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "test123",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "1b. User login",
+			"request": {
+				"url": "http://localhost:3000/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "test123",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get movie details by id",
+			"request": {
+				"url": {
+					"raw": "https://api.themoviedb.org/3/movie/634649?api_key=95efee1e5cec02671e7e3c3d11b4065c",
+					"protocol": "https",
+					"host": [
+						"api",
+						"themoviedb",
+						"org"
+					],
+					"path": [
+						"3",
+						"movie",
+						"634649"
+					],
+					"query": [
+						{
+							"key": "api_key",
+							"value": "95efee1e5cec02671e7e3c3d11b4065c",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Add movie rating",
+			"request": {
+				"url": {
+					"raw": "http://localhost:3000/rating?token=c7d0f4e028a0a56d656d228cae1fe03b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"rating"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "c7d0f4e028a0a56d656d228cae1fe03b",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "user",
+							"value": "61d6be6d214f5fd0a6504613",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "movieid",
+							"value": "624860",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "rating",
+							"value": "7.0",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Add movie to favourites",
+			"request": {
+				"url": {
+					"raw": "http://localhost:3000/favourites?token=c7d0f4e028a0a56d656d228cae1fe03b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"favourites"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "c7d0f4e028a0a56d656d228cae1fe03b",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "user",
+							"value": "61d6be6d214f5fd0a6504613",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "movieid",
+							"value": "624860",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"description": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get movies favourited by user",
+			"request": {
+				"url": {
+					"raw": "http://localhost:3000/favourites/61d6be6d214f5fd0a6504613?token=c7d0f4e028a0a56d656d228cae1fe03b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"favourites",
+						"61d6be6d214f5fd0a6504613"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "c7d0f4e028a0a56d656d228cae1fe03b",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get movie review",
+			"request": {
+				"url": "",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Add movie review",
+			"request": {
+				"url": "http://localhost:3000/comments",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "comment",
+							"value": "will rate this 3/10",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Edit user profile",
+			"request": {
+				"url": {
+					"raw": "http://localhost:3000/profile?token=c7d0f4e028a0a56d656d228cae1fe03b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"profile"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "c7d0f4e028a0a56d656d228cae1fe03b",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Kok xin ",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "gender",
+							"value": "Female",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "birthDate",
+							"value": "2000-01--01",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "mail@gmail.com",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "user",
+							"value": "61d6be6d214f5fd0a6504613",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

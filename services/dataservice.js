@@ -116,7 +116,7 @@ var database = {
                 birthDate: db,
                 email: e,
             },
-            { upsert: true },
+            { upsert: true }, //insert if record doesn't exists
             callback
         );
     },
