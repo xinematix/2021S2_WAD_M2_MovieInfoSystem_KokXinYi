@@ -8,7 +8,8 @@ var commentModel;
 var profileDetailSchema = {};
 var ratingSchema = {};
 var favouriteSchema = {};
-var userModel, profileDetailModel, ratingModel, favouriteModel;
+var passwordSchema = {};
+var userModel, profileDetailModel, ratingModel, favouriteModel,updatepassword;
 
 
 
@@ -42,6 +43,10 @@ var database = {
                         ref: 'users'
                     }
                 });
+                passwordSchema = schema({
+                    password: String,
+                    
+                });
                 ratingSchema = schema({
                     user: {
                         type: schema.Types.ObjectId,
@@ -66,6 +71,7 @@ var database = {
                 profileDetailModel = connection.model('profiledetail', profileDetailSchema);
                 ratingModel = connection.model('rating', ratingSchema);
                 favouriteModel = connection.model('favourite', favouriteSchema);
+                passwordModel = connection.model('user', passwordSchema);
 
             } else {
                 console.log("Error connecting to Mongo DB");
@@ -116,6 +122,14 @@ var database = {
                 birthDate: db,
                 email: e,
             },
+            { upsert: true },
+            callback
+        );
+    },
+    updatePassword: function (p, callback) {
+        profileDetailModel.findOneAndUpdate(
+            { password: p },
+           
             { upsert: true },
             callback
         );

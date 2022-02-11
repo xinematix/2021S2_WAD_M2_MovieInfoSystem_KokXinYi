@@ -38,3 +38,25 @@ function updateProfile() {
     })
     return false;
 }
+
+function updatePassword() {
+    var userProfile = {
+        name: $("#newPwd").val(),
+    };
+
+    $.ajax({
+        url:"/password?token="+sessionStorage.authToken,
+        method:"PUT",
+        data: userProfile
+    })
+    .done(function(data){
+        $(".statusMessage").text(data);
+        setTimeout(function(){
+            location.reload();
+        },3000);
+    })
+    .fail(function(err){
+        $(".statusMessage").text("Unable to add new event");
+    })
+    return false;
+}
